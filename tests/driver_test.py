@@ -6,10 +6,12 @@ from webdriver.driver import Driver
 from webdriver.view import View
 
 
+@unittest.skip
 class DriverTest(unittest.TestCase):
     def test_should_create_new_driver_upon_init(self):
         driver = Driver()
         self.assertIsNotNone(driver.driver)
+        driver.close()
 
     def test_should_open_url(self):
         driver = Driver()

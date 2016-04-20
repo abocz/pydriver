@@ -22,29 +22,30 @@ class ViewTest(unittest.TestCase):
         view.__set_driver__(Driver())
         self.assertIsNotNone(view.driver)
 
-    def test_should_get_optional_fields(self):
+    def test_should_get_optional_elements(self):
         view = HomePage()
-        optional_fields = view.get_optional_fields()
-        self.assertEqual(len(optional_fields), 1)
-        self.assertEqual(optional_fields[0][1], view.bar)
+        optional_elements = view.get_optional_elements()
+        self.assertEqual(len(optional_elements), 1)
+        self.assertEqual(optional_elements[0], view.bar)
 
-    def test_should_get_required_fields(self):
+    def test_should_get_required_elements(self):
         view = HomePage()
-        required_fields = view.get_required_fields()
-        self.assertEqual(len(required_fields), 1)
-        self.assertEqual(required_fields[0][1], view.foo)
+        required_elements = view.get_required_elements()
+        self.assertEqual(len(required_elements), 1)
+        self.assertEqual(required_elements[0], view.foo)
 
-    def test_should_throw_exception_if_no_required_fields(self):
+    def test_should_throw_exception_if_no_required_elements(self):
         view = HomePage()
         view.foo.required = False
         with self.assertRaises(Exception):
-            view.get_required_fields()
+            view.get_required_elements()
 
     def test_should_not_be_loaded_with_no_elements_present(self):
         view = HomePage()
         driver = Driver()
         view.__set_driver__(driver)
         self.assertFalse(view.is_loaded())
+        driver.close()
 
     def test_should_be_loaded_with_elements_present(self):
         web_element = WebElement(None, None)
@@ -53,6 +54,7 @@ class ViewTest(unittest.TestCase):
         driver.find_element = MagicMock(return_value=web_element)
         view.__set_driver__(driver)
         self.assertTrue(view.is_loaded())
+        driver.close()
 
 
 class HomePage(View):

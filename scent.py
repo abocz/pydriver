@@ -10,7 +10,7 @@ fail_bg_color = termstyle.bg_default
 
 def run_tests(*args):
         import unittest
-        tests = unittest.TestLoader().discover('./tests', '*.py')
+        tests = unittest.TestLoader().discover('./tests', '*_test.py')
         result = unittest.TextTestRunner().run(tests)
         return result.wasSuccessful()
 

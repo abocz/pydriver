@@ -31,3 +31,6 @@ class Element(object):
 
     def is_displayed(self):
         return self.web_element.is_displayed()
+
+    def __str__(self):
+        return '{}: [{}, {}, {}]'.format(self.__class__, self.by, self.value, self.required)
