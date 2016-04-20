@@ -13,35 +13,35 @@ from webdriver.view import View
 
 class ViewTest(unittest.TestCase):
     def test_should_init_correctly(self):
-        view = HomePage()
+        view = MixedRequiredView()
         self.assertIsNone(view.driver)
 
     def test_should_set_driver(self):
-        view = HomePage()
+        view = MixedRequiredView()
         self.assertIsNone(view.driver)
         view.__set_driver__(Driver())
         self.assertIsNotNone(view.driver)
 
     def test_should_get_optional_elements(self):
-        view = HomePage()
+        view = MixedRequiredView()
         optional_elements = view.get_optional_elements()
         self.assertEqual(len(optional_elements), 1)
         self.assertEqual(optional_elements[0], view.bar)
 
     def test_should_get_required_elements(self):
-        view = HomePage()
+        view = MixedRequiredView()
         required_elements = view.get_required_elements()
         self.assertEqual(len(required_elements), 1)
         self.assertEqual(required_elements[0], view.foo)
 
     def test_should_throw_exception_if_no_required_elements(self):
-        view = HomePage()
+        view = MixedRequiredView()
         view.foo.required = False
         with self.assertRaises(Exception):
             view.get_required_elements()
 
     def test_should_not_be_loaded_with_no_elements_present(self):
-        view = HomePage()
+        view = MixedRequiredView()
         driver = Driver()
         view.__set_driver__(driver)
         self.assertFalse(view.is_loaded())
@@ -57,7 +57,7 @@ class ViewTest(unittest.TestCase):
         driver.close()
 
 
-class HomePage(View):
+class MixedRequiredView(View):
     foo = Button(By.ID, 'foo')
     bar = Button(By.ID, 'bar', False)
 

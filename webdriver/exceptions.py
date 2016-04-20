@@ -14,3 +14,9 @@ class PyDriverElementNotFoundException(PyDriverException):
         self.element = element
         self.msg = '{}: {}'.format(self.element, msg)
         super(PyDriverElementNotFoundException, self).__init__(self.msg)
+
+
+class PyDriverTimeoutException(PyDriverException):
+    def __init__(self, msg):
+        self.msg = msg
+        super(PyDriverTimeoutException, self).__init__(self.msg)

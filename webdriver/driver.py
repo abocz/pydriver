@@ -1,6 +1,9 @@
+from __future__ import print_function
+
 from selenium import webdriver
 
 from webdriver.view import View
+from wait.wait import wait_until
 
 
 class Driver(object):
@@ -11,6 +14,7 @@ class Driver(object):
         if isinstance(destination, View):
             destination.__set_driver__(self)
             destination.driver.get(destination.url())
+            wait_until(lambda: destination.is_loaded())
             return destination
         else:
             self.get(destination)
