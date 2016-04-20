@@ -2,8 +2,6 @@ from __future__ import print_function
 
 import unittest
 
-from selenium import webdriver
-
 from webdriver.driver import Driver
 from webdriver.exceptions import PyDriverTimeoutException
 from webdriver.view import View
@@ -31,8 +29,6 @@ class DriverTest(unittest.TestCase):
         self.assertTrue(view.is_loaded())
         driver.close()
 
-
-class TimeoutTest(unittest.TestCase):
     def test_should_timeout_if_view_not_loaded(self):
         driver = Driver()
         view = NeverLoadedView()
