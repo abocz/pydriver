@@ -12,6 +12,10 @@ from webdriver.view import View
 
 
 class ViewTest(unittest.TestCase):
+    def test_should_init_correctly(self):
+        view = HomePage()
+        self.assertIsNone(view.driver)
+
     def test_should_set_driver(self):
         view = HomePage()
         self.assertIsNone(view.driver)

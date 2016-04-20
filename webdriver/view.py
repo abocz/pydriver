@@ -11,6 +11,9 @@ class View(object):
     def __init__(self):
         self.driver = None
 
+    def url(self):
+        pass
+
     def __set_driver__(self, driver):
         self.driver = driver
 
