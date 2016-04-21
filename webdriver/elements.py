@@ -1,5 +1,7 @@
 from __future__ import print_function
 
+from webdriver.mixins import Disableable, Clickable
+
 
 class Element(object):
     def __init__(self, by, value, required=True):
@@ -10,9 +12,6 @@ class Element(object):
 
     def __set_driver__(self, driver):
         self.driver = driver
-
-    def click(self):
-        self.web_element.click()
 
     def tag_name(self):
         return self.web_element.tag_name()
@@ -34,3 +33,8 @@ class Element(object):
 
     def __str__(self):
         return '{}: [{}, {}, {}]'.format(self.__class__, self.by, self.value, self.required)
+
+
+class Button(Element, Disableable, Clickable):
+    def __init__(self, by, value, required=True):
+        super(Button, self).__init__(by, value, required)

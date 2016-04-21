@@ -7,7 +7,7 @@ from webdriver.exceptions import PyDriverTimeoutException
 from webdriver.view import View
 
 
-@unittest.skip
+@unittest.skip('same instance of FF issue')
 class DriverTest(unittest.TestCase):
     def test_should_create_new_driver_upon_init(self):
         driver = Driver()

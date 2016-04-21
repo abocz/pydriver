@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
 from webdriver.driver import Driver
-from webdriver.elements.button import Button
+from webdriver.elements import Button
 from webdriver.view import View
 
 

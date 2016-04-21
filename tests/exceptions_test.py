@@ -2,7 +2,7 @@ import unittest
 
 from selenium.webdriver.common.by import By
 
-from webdriver.elements.element import Element
+from webdriver.elements import Element
 from webdriver.exceptions import *
 
 

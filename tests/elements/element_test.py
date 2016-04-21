@@ -2,10 +2,13 @@ from __future__ import print_function
 
 import unittest
 
+from mock import MagicMock
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
 from webdriver.driver import Driver
-from webdriver.elements.element import Element
+from webdriver.elements import Button
+from webdriver.elements import Element
 
 
 class ElementTest(unittest.TestCase):
@@ -21,3 +24,9 @@ class ElementTest(unittest.TestCase):
         driver = Driver()
         element.__set_driver__(driver)
         self.assertIsNotNone(element.driver)
+
+    def test_should_allow_mixin(self):
+        button = Button(By.ID, 'foo')
+        button.web_element = WebElement(None, None)
+        button.web_element.is_enabled = MagicMock(return_value=True)
+        self.assertTrue(button.is_enabled())

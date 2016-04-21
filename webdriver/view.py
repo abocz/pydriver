@@ -4,7 +4,7 @@ import inspect
 
 from selenium.common.exceptions import NoSuchElementException
 
-from webdriver.elements.element import Element
+from webdriver.elements import Element
 
 
 class View(object):
