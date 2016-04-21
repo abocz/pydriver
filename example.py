@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from pydriver.webdriver import Driver, TextInput
-from pydriver.webdriver.view import View
+from pydriver.webdriver import Driver, TextInput, View
 
 
 class GoogleView(View):

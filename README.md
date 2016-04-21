@@ -13,8 +13,7 @@ Override the **url(self)** method and provide a URL to open for the view.
 ~~~python
 import pydriver
 
-from pydriver.webdriver import Driver, TextInput
-from pydriver.webdriver.view import View
+from pydriver.webdriver import Driver, TextInput, View
 
 
 class GoogleView(View):
