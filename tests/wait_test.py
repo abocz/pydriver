@@ -1,7 +1,7 @@
 import unittest
 
-from wait.wait import wait_until
-from webdriver.exceptions import PyDriverTimeoutException
+from pydriver.wait import wait_until
+from pydriver.webdriver import PyDriverTimeoutException
 
 
 class WaitTest(unittest.TestCase):
@@ -12,3 +12,7 @@ class WaitTest(unittest.TestCase):
         except PyDriverTimeoutException:
             truth = True
         wait_until(lambda: truth is True, 5, 1)
+
+
+if __name__ == '__main__':
+    unittest.main()

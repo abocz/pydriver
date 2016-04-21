@@ -1,6 +1,6 @@
 import polling
 
-from webdriver.exceptions import PyDriverTimeoutException
+from pydriver.webdriver.exceptions import PyDriverTimeoutException
 
 
 def wait_until(predicate, timeout_at=30, poll_every=1):

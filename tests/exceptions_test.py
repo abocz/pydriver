@@ -2,8 +2,7 @@ import unittest
 
 from selenium.webdriver.common.by import By
 
-from webdriver.elements import Element
-from webdriver.exceptions import *
+from pydriver.webdriver import Element, PyDriverException, PyDriverElementNotFoundException
 
 
 class ExceptionsTest(unittest.TestCase):
@@ -29,3 +28,6 @@ class ExceptionRaiser(object):
         element = Element(By.ID, 'foo')
         raise PyDriverElementNotFoundException(element, 'This is a PyDriverElementNotFoundException.')
 
+
+if __name__ == '__main__':
+    unittest.main()

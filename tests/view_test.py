@@ -6,9 +6,8 @@ from mock import MagicMock
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
-from webdriver.driver import Driver
-from webdriver.elements import Button
-from webdriver.view import View
+from pydriver.webdriver import Driver, Button
+from pydriver.webdriver.view import View
 
 
 class ViewTest(unittest.TestCase):
@@ -64,4 +63,10 @@ class MixedRequiredView(View):
 
 class AllRequiredView(View):
     foo = Button(By.ID, 'foo')
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
 

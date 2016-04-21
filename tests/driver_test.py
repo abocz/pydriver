@@ -2,9 +2,8 @@ from __future__ import print_function
 
 import unittest
 
-from webdriver.driver import Driver
-from webdriver.exceptions import PyDriverTimeoutException
-from webdriver.view import View
+from pydriver.webdriver import Driver, PyDriverTimeoutException
+from pydriver.webdriver.view import View
 
 
 @unittest.skip('same instance of FF issue')

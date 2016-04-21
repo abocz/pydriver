@@ -2,8 +2,8 @@ from __future__ import print_function
 
 from selenium import webdriver
 
-from webdriver.view import View
-from wait.wait import wait_until
+from pydriver.wait import wait_until
+from .view import View
 
 
 class Driver(object):

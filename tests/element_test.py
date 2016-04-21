@@ -6,9 +6,7 @@ from mock import MagicMock
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
-from webdriver.driver import Driver
-from webdriver.elements import Button
-from webdriver.elements import Element
+from pydriver.webdriver import Element, Button, Driver
 
 
 class ElementTest(unittest.TestCase):
@@ -30,3 +28,7 @@ class ElementTest(unittest.TestCase):
         button.web_element = WebElement(None, None)
         button.web_element.is_enabled = MagicMock(return_value=True)
         self.assertTrue(button.is_enabled())
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,6 +1,6 @@
 from __future__ import print_function
 
-from webdriver.mixins import Disableable, Clickable
+from pydriver.webdriver.mixins import Disableable, Clickable
 
 
 class Element(object):
