@@ -11,3 +11,4 @@ target/
 *.pyc
 /dist/
 /*.egg-info
+/build/
