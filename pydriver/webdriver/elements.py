@@ -38,3 +38,12 @@ class Element(object):
 class Button(Element, Disableable, Clickable):
     def __init__(self, by, value, required=True):
         super(Button, self).__init__(by, value, required)
+
+
+class TextInput(Element, Clickable):
+    def __init__(self, by, value, required=True):
+        super(TextInput, self).__init__(by, value, required)
+
+    def clear_and_type(self, msg):
+        self.web_element.clear()
+        self.web_element.send_keys(msg)
